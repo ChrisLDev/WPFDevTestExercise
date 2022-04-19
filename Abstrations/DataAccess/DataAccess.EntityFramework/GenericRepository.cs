@@ -18,18 +18,18 @@ namespace DataAccess.EntityFramework
         public GenericRepository(IServiceScopeFactory<TContext> dbCxFactory) =>
             DbCxFactory = dbCxFactory;
 
-        public bool Create(params TEntity[] entities)
+        public async Task<bool> CreateAsync(params TEntity[] entities)
         {
             using var scope = DbCxFactory.CreateScope();
             using var cx = scope.GetRequiredServices();
 
             var set = cx.Set<TEntity>();
-            set.AddRange(entities);
+            set.AddRangeAsync(entities).ConfigureAwait(false);
 
-            return cx.SaveChanges() >= entities.Length;
+            return await cx.SaveChangesAsync().ConfigureAwait(false) >= entities.Length;
         }
 
-        public bool Update(params TEntity[] entities)
+        public async Task<bool> UpdateAsync(params TEntity[] entities)
         {
             using var scope = DbCxFactory.CreateScope();
             using var cx = scope.GetRequiredServices();
@@ -37,10 +37,10 @@ namespace DataAccess.EntityFramework
             var set = cx.Set<TEntity>();
             set.UpdateRange(entities);
 
-            return cx.SaveChanges() >= entities.Length;
+            return await cx.SaveChangesAsync().ConfigureAwait(false) >= entities.Length;
         }
 
-        public bool Delete(params TEntity[] entities)
+        public async Task<bool> DeleteAsync(params TEntity[] entities)
         {
             using var scope = DbCxFactory.CreateScope();
             using var cx = scope.GetRequiredServices();
@@ -48,19 +48,19 @@ namespace DataAccess.EntityFramework
             var set = cx.Set<TEntity>();
             set.RemoveRange(entities);
 
-            return cx.SaveChanges() >= entities.Length;
+            return await cx.SaveChangesAsync().ConfigureAwait(false) >= entities.Length;
         }
 
-        public TEntity Get(Expression<Func<TEntity, bool>> predicate,
+        public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate,
             params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes)
         {
             using var scope = DbCxFactory.CreateScope();
             using var cx = scope.GetRequiredServices();
 
-            return AggregateIncludes(cx, includes).FirstOrDefault(predicate);
+            return await AggregateIncludes(cx, includes).FirstOrDefaultAsync(predicate);
         }
 
-        public TEntity[] Query(
+        public async Task<TEntity[]> QueryAsync(
             Expression<Func<TEntity, bool>> filter = null,
             Expression<Func<TEntity, TEntity>> select = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> sort = null,
@@ -72,7 +72,7 @@ namespace DataAccess.EntityFramework
             using var scope = DbCxFactory.CreateScope();
             using var cx = scope.GetRequiredServices();
 
-            return AggregateQuary(cx, filter, select, sort, tracking, skip, take, includes).ToArray();
+            return await AggregateQuary(cx, filter, select, sort, tracking, skip, take, includes).ToArrayAsync();
         }
 
         private static IQueryable<TEntity> AggregateQuary(

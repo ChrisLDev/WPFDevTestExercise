@@ -20,7 +20,7 @@ namespace DataAccess.EntityFramework
         /// <param name="take"></param>
         /// <param name="includes"></param>
         /// <returns></returns>
-        TEntity[] Query(
+        Task<TEntity[]> QueryAsync(
             Expression<Func<TEntity, bool>> filter = null,
             Expression<Func<TEntity, TEntity>> select = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> sort = null,
@@ -36,7 +36,7 @@ namespace DataAccess.EntityFramework
         /// <param name="predicate"></param>
         /// <param name="includes"></param>
         /// <returns></returns>
-        TEntity Get(Expression<Func<TEntity, bool>> predicate,
+        Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate,
             params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes);
 
         /// <summary>
@@ -44,20 +44,20 @@ namespace DataAccess.EntityFramework
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        bool Create(params TEntity[] entities);
+        Task<bool> CreateAsync(params TEntity[] entities);
 
         /// <summary>
         /// Updates the specified entities in the <see cref="DbSet{TEntity}"/>
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        bool Update(params TEntity[] entities);
+        Task<bool> UpdateAsync(params TEntity[] entities);
 
         /// <summary>
         /// Removes the specified entities from the <see cref="DbSet{TEntity}"/>
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        bool Delete(params TEntity[] entities);
+        Task<bool> DeleteAsync(params TEntity[] entities);
     }
 }

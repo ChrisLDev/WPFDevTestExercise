@@ -6,12 +6,7 @@ namespace DataAccess.EntityFramework
     public abstract class GeneralDbContext<TContext>
         : DbContext where TContext : DbContext
     {
-        private readonly ILogger<TContext> _logger;
-
-        protected GeneralDbContext(
-            DbContextOptions<TContext> options,
-            ILogger<TContext> logger) : base (options) =>
-            _logger = logger;
+        protected GeneralDbContext() {}
 
         protected string MigrationAssembly => typeof(TContext).Assembly.FullName;
 
