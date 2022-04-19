@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFDevTestExercise", "WPFDevTestExercise.csproj", "{3783D3B0-2251-4C0B-BCE1-C5F518D263C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.EntityFramework", "Abstrations\DataAccess\DataAccess.EntityFramework\DataAccess.EntityFramework.csproj", "{565E39EB-BC3E-4CCE-BA77-B8709864E015}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.EntityFramework", "Abstrations\DataAccess\DataAccess.EntityFramework\DataAccess.EntityFramework.csproj", "{565E39EB-BC3E-4CCE-BA77-B8709864E015}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection", "Abstrations\DependencyInjection\DependencyInjection\DependencyInjection.csproj", "{C572A9E8-45F2-4982-9296-69C5B08E2222}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection", "Abstrations\DependencyInjection\DependencyInjection\DependencyInjection.csproj", "{C572A9E8-45F2-4982-9296-69C5B08E2222}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstrations", "Abstrations", "{E4ADCDAD-EAEE-4A2B-BC4E-ABBF6D1ABC64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInfoFramework", "Abstrations\Frameworks\InfoFramework\UserInfoFramework.csproj", "{F959081D-E7A8-49A3-AF5F-D65222F66D5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserInfoFramework", "Abstrations\Frameworks\InfoFramework\UserInfoFramework.csproj", "{F959081D-E7A8-49A3-AF5F-D65222F66D5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Abstrations\Extensions\Extensions.csproj", "{078EBB86-3E18-4825-8F9C-6A2F1CF92DE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions", "Abstrations\Extensions\Extensions.csproj", "{078EBB86-3E18-4825-8F9C-6A2F1CF92DE5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{004489B4-6EED-4607-864E-782EF0461045}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfClientApp", "Client\WpfClientApp\WpfClientApp.csproj", "{5697926F-1EFA-41D1-926D-5630764BE7AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3783D3B0-2251-4C0B-BCE1-C5F518D263C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3783D3B0-2251-4C0B-BCE1-C5F518D263C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3783D3B0-2251-4C0B-BCE1-C5F518D263C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3783D3B0-2251-4C0B-BCE1-C5F518D263C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{565E39EB-BC3E-4CCE-BA77-B8709864E015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{565E39EB-BC3E-4CCE-BA77-B8709864E015}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{565E39EB-BC3E-4CCE-BA77-B8709864E015}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +39,10 @@ Global
 		{078EBB86-3E18-4825-8F9C-6A2F1CF92DE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{078EBB86-3E18-4825-8F9C-6A2F1CF92DE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{078EBB86-3E18-4825-8F9C-6A2F1CF92DE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5697926F-1EFA-41D1-926D-5630764BE7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5697926F-1EFA-41D1-926D-5630764BE7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5697926F-1EFA-41D1-926D-5630764BE7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5697926F-1EFA-41D1-926D-5630764BE7AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +52,7 @@ Global
 		{C572A9E8-45F2-4982-9296-69C5B08E2222} = {E4ADCDAD-EAEE-4A2B-BC4E-ABBF6D1ABC64}
 		{F959081D-E7A8-49A3-AF5F-D65222F66D5E} = {E4ADCDAD-EAEE-4A2B-BC4E-ABBF6D1ABC64}
 		{078EBB86-3E18-4825-8F9C-6A2F1CF92DE5} = {E4ADCDAD-EAEE-4A2B-BC4E-ABBF6D1ABC64}
+		{5697926F-1EFA-41D1-926D-5630764BE7AB} = {004489B4-6EED-4607-864E-782EF0461045}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {33D3E907-EF4A-4DD8-8E9B-B98984ED8F95}
