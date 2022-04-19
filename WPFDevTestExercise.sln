@@ -5,6 +5,10 @@ VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFDevTestExercise", "WPFDevTestExercise.csproj", "{3783D3B0-2251-4C0B-BCE1-C5F518D263C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.EntityFramework", "Abstrations\DataAccess\DataAccess.EntityFramework\DataAccess.EntityFramework.csproj", "{565E39EB-BC3E-4CCE-BA77-B8709864E015}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection", "Abstrations\DependencyInjection\DependencyInjection\DependencyInjection.csproj", "{C572A9E8-45F2-4982-9296-69C5B08E2222}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{3783D3B0-2251-4C0B-BCE1-C5F518D263C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3783D3B0-2251-4C0B-BCE1-C5F518D263C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3783D3B0-2251-4C0B-BCE1-C5F518D263C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{565E39EB-BC3E-4CCE-BA77-B8709864E015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{565E39EB-BC3E-4CCE-BA77-B8709864E015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{565E39EB-BC3E-4CCE-BA77-B8709864E015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{565E39EB-BC3E-4CCE-BA77-B8709864E015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C572A9E8-45F2-4982-9296-69C5B08E2222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C572A9E8-45F2-4982-9296-69C5B08E2222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C572A9E8-45F2-4982-9296-69C5B08E2222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C572A9E8-45F2-4982-9296-69C5B08E2222}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
