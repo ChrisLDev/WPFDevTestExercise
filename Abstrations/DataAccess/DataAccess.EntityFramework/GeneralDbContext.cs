@@ -12,7 +12,7 @@ namespace DataAccess.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            builder.UseSqlServer("Server=localhost;Database=WPFTestApp;User=Admin;Password=Password123;",
+            builder.UseSqlServer("Server=localhost;Database=WPFTestApp;User Id=sa;Password=Password123;",
                 x => x.MigrationsAssembly(MigrationAssembly));
         }
     }

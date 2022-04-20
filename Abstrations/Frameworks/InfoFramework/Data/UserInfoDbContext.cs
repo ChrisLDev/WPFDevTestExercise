@@ -13,6 +13,6 @@ namespace UserInfoFramework.Data
     {
         public UserInfoDbContext() {}
 
-        public DbSet<UserInfoEntity> Person { get; set; }
+        public DbSet<UserInfoEntity> Users { get; set; }
     }
 }

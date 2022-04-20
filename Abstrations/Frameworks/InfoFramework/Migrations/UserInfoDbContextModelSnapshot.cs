@@ -41,7 +41,7 @@ namespace UserInfoFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Person");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }
