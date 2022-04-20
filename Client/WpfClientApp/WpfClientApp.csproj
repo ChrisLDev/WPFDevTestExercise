@@ -15,9 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Abstrations\Frameworks\InfoFramework\UserInfoFramework.csproj" />
     <ProjectReference Include="..\..\Abstrations\Frameworks\UIFramework\UIFramework\UIFramework.csproj" />
     <ProjectReference Include="..\..\Abstrations\Hosting\Hosting.ReactiveUI\Hosting.ReactiveUI.csproj" />
+    <ProjectReference Include="..\..\UserViewer\UserViewer.csproj" />
   </ItemGroup>
 
 </Project>
