@@ -16,12 +16,4 @@ namespace UIFramework
         [Reactive] public ReactiveObject MainContentViewModel { get; set; }
 
     }
-
-    public class test : IModule
-    {
-        public void RegisterServices(IServiceCollection service)
-        {
-            throw new NotImplementedException();
-        }
-    }
 }

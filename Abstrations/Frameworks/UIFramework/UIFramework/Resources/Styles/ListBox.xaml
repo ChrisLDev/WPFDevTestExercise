@@ -1,0 +1,53 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Colours.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+
+	<Style x:Key="{x:Type ListBoxItem}" TargetType="{x:Type ListBoxItem}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ListBoxItem">
+					<Border Name="Border"
+							Padding="8" BorderThickness="0,0,0,1" CornerRadius="4" BorderBrush="{StaticResource ElementBorderBrush}">
+						<ContentPresenter />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True">
+							<Setter TargetName="Border" Property="Background" Value="{StaticResource ElementBorderBrush}"/>
+						</Trigger>
+						<Trigger Property="IsFocused" Value="False">
+							<Setter TargetName="Border" Property="Background" Value="transparent"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="{x:Type ListBox}" TargetType="{x:Type ListBox}">
+		<Setter Property="Margin" Value="8,0" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ListBox">
+					<Border Name="Border" Background="{StaticResource ElementBrush}" CornerRadius="4" BorderThickness="0,1,0,0" BorderBrush="{StaticResource ElementBorderBrush}">
+						<ScrollViewer>
+							<StackPanel Margin="2" IsItemsHost="True"/>
+						</ScrollViewer>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter Property="Opacity" Value="{StaticResource Opacity_Disabled}"/>
+						</Trigger>
+						<Trigger Property="IsGrouping" Value="True">
+							<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+</ResourceDictionary>

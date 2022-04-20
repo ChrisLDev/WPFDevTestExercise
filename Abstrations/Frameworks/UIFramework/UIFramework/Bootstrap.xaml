@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<ResourceDictionary.MergedDictionaries>
+
+		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Colours.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Fonts.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/ListBox.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/TextBlock.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/TextBox.xaml" />
+
+	</ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

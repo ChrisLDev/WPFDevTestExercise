@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+	<system:Double x:Key="IconFontSize">20</system:Double>
+	<system:Double x:Key="TitleFontSize">24</system:Double>
+	<system:Double x:Key="HeaderFontSize">20</system:Double>
+
+	<FontWeight x:Key="DefaultFontWeight">Normal</FontWeight>
+	<FontWeight x:Key="TitleFontWeight">SemiBold</FontWeight>
+	<FontWeight x:Key="HeaderFontWeight">ExtraLight</FontWeight>
+	<FontWeight x:Key="SubtitleFontWeight">SemiBold</FontWeight>
+
+	<FontStyle x:Key="DefaultFontStyle">Normal</FontStyle>
+	<FontStyle x:Key="PlaceHolderFontStyle">Italic</FontStyle>
+
+</ResourceDictionary>

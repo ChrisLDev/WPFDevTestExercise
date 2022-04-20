@@ -8,11 +8,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UIFramework"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Background="{StaticResource BackgroundPanelBrush}">
 
-    <DockPanel>
-        <rxui:ViewModelViewHost x:Name="MainContentHost">
-            <TextBlock Text="MainContent" TextAlignment="Center" FontSize="50"/>
+
+	<DockPanel>
+		<rxui:ViewModelViewHost x:Name="MainContentHost" 
+                HorizontalContentAlignment="Stretch" 
+                VerticalContentAlignment="Stretch"
+		        Transition="Fade" 
+                Duration="0">
+            <TextBlock Text="MainContent" TextAlignment="Center" FontSize="50" />
         </rxui:ViewModelViewHost>
     </DockPanel>
    
