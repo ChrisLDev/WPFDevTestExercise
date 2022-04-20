@@ -1,19 +1,10 @@
-﻿using ReactiveUI;
+﻿using Microsoft.Extensions.DependencyInjection;
+using ReactiveUI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reactive.Disposables;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using UserInfoFramework.Models;
+using System.Windows.Controls.Primitives;
 
 namespace UserViewer
 {
@@ -22,7 +13,7 @@ namespace UserViewer
 	/// </summary>
 	public partial class UserViewerView
 	{
-		public UserViewerView()
+		public UserViewerView(IServiceProvider service)
 		{
 			InitializeComponent();
 
@@ -52,6 +43,38 @@ namespace UserViewer
 					vm => vm.EditableUser,
 					v => v.EditPanel.ViewModel)
 				.DisposeWith(disposables);
+
+				this.BindCommand(ViewModel,
+					vm => vm.CreateUserCommand,
+					v => v.AddNewUserBtn)
+				.DisposeWith(disposables);
+
+				UpdateUser
+				.Events().Click
+				.Subscribe(_ =>
+				{
+					ViewModel.UpdateCommand
+						.Execute(ViewModel.EditableUser)
+						.Subscribe();
+				});
+
+				//Interactions
+				ViewModel.CreateUserInteraction.RegisterHandler(interaction =>
+				{
+					var factory = service.GetService<ICreateUserDialogFactory>();
+					var dialog = factory.Create();
+					var result = dialog.ShowDialog() ?? false;
+
+					//TODO Make dialog return user
+					var user = new User
+					{
+						Name = dialog.Name,
+						DateOfBirth = dialog.DateOfBirth,
+						Profession = dialog.Profession,
+					};
+
+					interaction.SetOutput((User: user, IsConfirmed: result));
+				});
 			});
 		}
 	}

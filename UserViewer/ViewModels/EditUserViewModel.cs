@@ -28,13 +28,13 @@ namespace UserViewer
 
 		[Reactive] public string Profession { get; set; }
 
-		public ReactiveCommand<Unit, Unit> SaveCommand =>
-			ReactiveCommand.CreateFromTask(async () =>
-			{
-				var user = _mapper.Map<User>(this);
+		//public ReactiveCommand<Unit, Unit> SaveCommand =>
+		//	ReactiveCommand.CreateFromTask(async () =>
+		//	{
+		//		var user = _mapper.Map<User>(this);
 
-				await _userInfoService.UpdateUser(user);
-			});
+		//		await _userInfoService.UpdateUser(user);
+		//	});
 
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Modularization;
 using ReactiveUI;
+using UserViewer.Factory;
 
 namespace UserViewer
 {
@@ -16,6 +17,10 @@ namespace UserViewer
 
 			service.AddTransient<EditUserViewModel>();
 			service.AddTransient<IViewFor<EditUserViewModel>, EditUserView>();
+
+			service.AddTransient<ICreateUserView, CreateUserView>();
+			service.AddTransient<ICreateUserViewModel, CreateUserViewModel>();
+			service.AddSingleton<ICreateUserDialogFactory, CreateUserDialogFactory>();
 
 			service.AddAutoMapper(typeof(UserViewMappings));
 		}

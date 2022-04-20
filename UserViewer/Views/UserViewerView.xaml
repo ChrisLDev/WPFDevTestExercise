@@ -11,8 +11,11 @@
 	<DockPanel >
 		<StackPanel DockPanel.Dock="Top">
 			<TextBlock Text="Users" Style="{StaticResource Header}"/>
-
-			<TextBox x:Name="Search" Tag="Search"/>
+            <DockPanel>
+                <Button x:Name="AddNewUserBtn" Content="New" Margin="8"/>
+                <TextBox x:Name="Search" Tag="Search" />
+            </DockPanel>
+           
 			<ListBox x:Name="UsersList" >
 				<ListBox.Template>
 					<ControlTemplate>
@@ -36,15 +39,12 @@
 				</ListBox.ItemTemplate>
 			</ListBox>
 
-			<Border Background="{StaticResource ElementBrush}" Margin="8">
-				<StackPanel>
-					<rxui:ViewModelViewHost x:Name="EditPanel" Transition="Fade" 
-                Duration="0"/>
-					
-				</StackPanel>
-			</Border>
-			
-
-		</StackPanel>
+            <Border Background="{StaticResource ElementBrush}" Margin="8">
+                <StackPanel>
+                    <rxui:ViewModelViewHost x:Name="EditPanel" Transition="Fade" Duration="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+                    <Button x:Name="UpdateUser" Content="Update" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="8" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
 	</DockPanel>
 </rxui:ReactiveUserControl>

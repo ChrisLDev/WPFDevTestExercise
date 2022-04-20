@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
 	  <TargetFramework>net6.0-windows</TargetFramework>
@@ -10,7 +10,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
     <PackageReference Include="ReactiveUI" Version="18.0.7" />
+    <PackageReference Include="ReactiveUI.Events.WPF" Version="15.1.1" />
     <PackageReference Include="ReactiveUI.Fody" Version="18.0.7" />
     <PackageReference Include="ReactiveUI.WPF" Version="18.0.7" />
   </ItemGroup>

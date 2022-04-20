@@ -70,6 +70,8 @@ namespace UserViewer
 
 		[Reactive] public EditUserViewModel EditableUser { get; set; }
 
+		public Interaction<Unit, (User User, bool IsConfirmed)> CreateUserInteraction { get; set; } = new Interaction<Unit, (User, bool)>(RxApp.MainThreadScheduler);
+
 		[Reactive] public string Search { get; set; }
 
 		public ReactiveCommand<UserViewModel, Unit> RemoveUserCommand =>
@@ -78,6 +80,28 @@ namespace UserViewer
 				var userModel = _mapper.Map<User>(user);
 
 				await _userInfoService.DeleteUser(userModel);
+
+				await RefreshUsers();
+			});
+
+		public ReactiveCommand<Unit, Unit> CreateUserCommand =>
+			ReactiveCommand.CreateFromTask(async () =>
+			{
+				var result = await CreateUserInteraction.Handle(Unit.Default);
+
+                if (result.IsConfirmed)
+                {
+					await _userInfoService.CreateUser(result.User);
+					await RefreshUsers();
+				}	
+			});
+
+		public ReactiveCommand<EditUserViewModel, Unit> UpdateCommand =>
+			ReactiveCommand.CreateFromTask<EditUserViewModel>(async user =>
+			{
+				var userModel = _mapper.Map<User>(user);
+
+				await _userInfoService.UpdateUser(userModel);
 
 				await RefreshUsers();
 			});
