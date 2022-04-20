@@ -41,13 +41,21 @@ namespace UserViewer
 
 				this.Bind(ViewModel,
 					vm => vm.EditableUser,
-					v => v.EditPanel.ViewModel)
+					v => v.EditPanelViewModel.ViewModel)
 				.DisposeWith(disposables);
 
 				this.BindCommand(ViewModel,
 					vm => vm.CreateUserCommand,
 					v => v.AddNewUserBtn)
 				.DisposeWith(disposables);
+
+				this.WhenAnyValue(x => x.ViewModel.EditableUser)
+				.Subscribe(user =>
+				{
+					EditPanel.Visibility = user == null 
+					? Visibility.Collapsed 
+					: Visibility.Visible;
+                }).DisposeWith(disposables);
 
 				UpdateUser
 				.Events().Click

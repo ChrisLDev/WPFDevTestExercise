@@ -6,6 +6,7 @@
 	<Color x:Key="LightBackgroundColour">#f3f3f3</Color>
 	<Color x:Key="BorderColour">#e8e8e8</Color>
 	<Color x:Key="ElementColour">#fff</Color>
+    <Color x:Key="AltElementColour">#e8e8e8</Color>
 	<Color x:Key="Text">#444</Color>
 	<Color x:Key="DarkGray">#888</Color>
 	<Color x:Key="Accent">#0067c0</Color>
@@ -13,6 +14,7 @@
 	<SolidColorBrush x:Key="BackgroundPanelBrush"  Color="{DynamicResource LightBackgroundColour}"/>
 	<SolidColorBrush x:Key="ElementBorderBrush" Color="{DynamicResource BorderColour}"/>
 	<SolidColorBrush x:Key="ElementBrush" Color="{DynamicResource ElementColour}"/>
+    <SolidColorBrush x:Key="AltElementBrush" Color="{DynamicResource AltElementColour}"/>
 	<SolidColorBrush x:Key="TextColour" Color="{DynamicResource Text}"/>
 	<SolidColorBrush x:Key="DarkGrayForeground" Color="{DynamicResource DarkGray}"/>
 	<SolidColorBrush x:Key="AccentBrush" Color="{DynamicResource Accent}"/>

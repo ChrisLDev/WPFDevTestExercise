@@ -8,7 +8,8 @@
 		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/ListBox.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/TextBlock.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/Button.xaml" />
 
-	</ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

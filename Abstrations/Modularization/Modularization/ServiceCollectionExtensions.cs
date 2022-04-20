@@ -11,13 +11,25 @@ namespace Modularization
 		public static IObservable<Unit> RegisterServices(this IServiceCollection services) =>
 			Observable.FromAsync(async () =>
 			{
-				var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies().ToList();
-				var loadedPaths = loadedAssemblies.Select(a => a.Location).ToArray();
+				var loadedAssemblies = AppDomain.CurrentDomain
+				.GetAssemblies()
+				.ToList();
+
+				var loadedPaths = loadedAssemblies
+				.Select(a => a.Location)
+				.ToArray();
 
 				var referencedPaths = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.dll");
-				var toLoad = referencedPaths.Where(r => !loadedPaths.Contains(r, StringComparer.InvariantCultureIgnoreCase)).ToList();
+				var toLoad = referencedPaths
+				.Where(r => !loadedPaths
+					.Contains(r, StringComparer.InvariantCultureIgnoreCase))
+				.ToList();
 
-				toLoad.ForEach(path => loadedAssemblies.Add(AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(path))));
+				toLoad
+					.ForEach(path => loadedAssemblies
+						.Add(AppDomain.CurrentDomain
+							.Load(AssemblyName
+								.GetAssemblyName(path))));
 
 				AssemblyLoadContext.Default.Assemblies
 				.ToList()
