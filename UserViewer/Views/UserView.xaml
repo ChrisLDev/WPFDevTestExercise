@@ -1,0 +1,20 @@
+﻿<rxui:ReactiveUserControl x:Class="UserViewer.UserView"
+             xmlns:rxui="http://reactiveui.net"
+             x:TypeArguments="local:UserViewModel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserViewer"
+             mc:Ignorable="d">
+    <Grid HorizontalAlignment="Stretch"  Margin="8">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="Auto"/>
+		</Grid.ColumnDefinitions>
+
+		<TextBlock x:Name="Name" Grid.Column="0" MinWidth="200"/>
+		<TextBlock x:Name="DateOfBirth" Grid.Column="1" Margin="10,0"/>
+	</Grid>
+</rxui:ReactiveUserControl>

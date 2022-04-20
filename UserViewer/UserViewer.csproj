@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net6.0-windows</TargetFramework>
+	  <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="ReactiveUI" Version="18.0.7" />
+    <PackageReference Include="ReactiveUI.Fody" Version="18.0.7" />
+    <PackageReference Include="ReactiveUI.WPF" Version="18.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Abstrations\Frameworks\InfoFramework\UserInfoFramework.csproj" />
+    <ProjectReference Include="..\Abstrations\Frameworks\UIFramework\UIFramework\UIFramework.csproj" />
+    <ProjectReference Include="..\Abstrations\Modularization\Modularization\Modularization.csproj" />
+  </ItemGroup>
+
+</Project>
