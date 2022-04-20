@@ -35,7 +35,7 @@ namespace UserViewer
 				.Throttle(TimeSpan.FromMilliseconds(200))
 				.ObserveOnDispatcher()
 				.WhereNotNull()
-				.Subscribe(searchfilter => DispalyUsers = Users
+				.Subscribe(searchfilter => DisplayUsers = Users
 					.Where(x => x.Name
 						.Contains(searchfilter, StringComparison.CurrentCultureIgnoreCase))
 					.ToList())
@@ -59,12 +59,12 @@ namespace UserViewer
 		private async Task RefreshUsers()
 		{
 			Users = await GetUsers();
-			DispalyUsers = Users.ToList();
+			DisplayUsers = Users.ToList();
 		}
 
 		private IEnumerable<UserViewModel> Users { get; set; } = new List<UserViewModel>();
 
-		[Reactive] public List<UserViewModel> DispalyUsers { get; set; }
+		[Reactive] public List<UserViewModel> DisplayUsers { get; set; }
 
 		[Reactive] public UserViewModel SelectedUser { get; set; }
 

@@ -25,7 +25,7 @@ namespace UserViewer
 					.DisposeWith(disposables);
 
 				this.OneWayBind(ViewModel,
-					vm => vm.DispalyUsers,
+					vm => vm.DisplayUsers,
 					v => v.UsersList.ItemsSource)
 				.DisposeWith(disposables);
 
