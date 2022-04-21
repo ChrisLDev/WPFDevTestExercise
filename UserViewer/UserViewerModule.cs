@@ -15,8 +15,8 @@ namespace UserViewer
 			service.AddTransient<UserViewModel>();
 			service.AddTransient<IViewFor<UserViewModel>, UserView>();
 
-			service.AddTransient<EditUserViewModel>();
-			service.AddTransient<IViewFor<EditUserViewModel>, EditUserView>();
+			service.AddTransient<UserDetialsViewModel>();
+			service.AddTransient<IViewFor<UserDetialsViewModel>, UserDetialsView>();
 
 			service.AddTransient<ICreateUserView, CreateUserView>();
 			service.AddTransient<ICreateUserViewModel, CreateUserViewModel>();

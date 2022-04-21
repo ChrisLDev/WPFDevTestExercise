@@ -11,10 +11,10 @@ namespace UserViewer
 			CreateMap<User, UserViewModel>()
 				.ConstructUsingServiceLocator();
 
-			CreateMap<EditUserViewModel, UserViewModel>().ReverseMap()
+			CreateMap<UserDetialsViewModel, UserViewModel>().ReverseMap()
 			.ConstructUsingServiceLocator();
 
-			CreateMap<EditUserViewModel, User>().ReverseMap()
+			CreateMap<UserDetialsViewModel, User>().ReverseMap()
 			.ConstructUsingServiceLocator();
 		}
 	}

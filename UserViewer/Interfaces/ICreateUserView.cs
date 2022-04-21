@@ -9,12 +9,19 @@ namespace UserViewer
 {
     public interface ICreateUserView : IViewFor<ICreateUserViewModel>
     {
-        string Name { get; }
+        string Title { get; set; }
+        string ButtonName { get; set; }
+
+        string Name { get;  }
 
         DateTime DateOfBirth { get; }
 
-        string Profession { get; }
+        string Profession { get;  }
+
+        Guid Id { get; }
 
         bool? ShowDialog();
+
+
     }
 }

@@ -43,7 +43,7 @@ namespace UserViewer
 
 			this.WhenAnyValue(x => x.SelectedUser)
 				.WhereNotNull()
-				.Subscribe(user => EditableUser = _mapper.Map<EditUserViewModel>(user))
+				.Subscribe(user => EditableUser = _mapper.Map<UserDetialsViewModel>(user))
 				.DisposeWith(disposables);
 
 			base.OnActivation(disposables);
@@ -68,9 +68,10 @@ namespace UserViewer
 
 		[Reactive] public UserViewModel SelectedUser { get; set; }
 
-		[Reactive] public EditUserViewModel EditableUser { get; set; }
+		[Reactive] public UserDetialsViewModel EditableUser { get; set; }
 
-		public Interaction<Unit, (User User, bool IsConfirmed)> CreateUserInteraction { get; set; } = new Interaction<Unit, (User, bool)>(RxApp.MainThreadScheduler);
+		public Interaction<(string buttonName, User user), (User User, bool IsConfirmed)> CreateUserInteraction { get; set; } =
+			new(RxApp.MainThreadScheduler);
 
 		[Reactive] public string Search { get; set; }
 
@@ -87,23 +88,28 @@ namespace UserViewer
 		public ReactiveCommand<Unit, Unit> CreateUserCommand =>
 			ReactiveCommand.CreateFromTask(async () =>
 			{
-				var result = await CreateUserInteraction.Handle(Unit.Default);
+				var result = await CreateUserInteraction.Handle(("Create",null));
 
                 if (result.IsConfirmed)
                 {
 					await _userInfoService.CreateUser(result.User);
 					await RefreshUsers();
-				}	
+				}
 			});
 
-		public ReactiveCommand<EditUserViewModel, Unit> UpdateCommand =>
-			ReactiveCommand.CreateFromTask<EditUserViewModel>(async user =>
+		public ReactiveCommand<UserViewModel, Unit> UpdateCommand =>
+			ReactiveCommand.CreateFromTask<UserViewModel>(async user =>
 			{
 				var userModel = _mapper.Map<User>(user);
 
-				await _userInfoService.UpdateUser(userModel);
+				var result = await CreateUserInteraction.Handle(("Edit", userModel));
 
-				await RefreshUsers();
+				if (result.IsConfirmed)
+				{
+					await _userInfoService.UpdateUser(result.User);
+
+					await RefreshUsers();
+				}
 			});
 	}
 }

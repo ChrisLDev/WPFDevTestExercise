@@ -57,20 +57,14 @@ namespace UserViewer
 					: Visibility.Visible;
                 }).DisposeWith(disposables);
 
-				UpdateUser
-				.Events().Click
-				.Subscribe(_ =>
-				{
-					ViewModel.UpdateCommand
-						.Execute(ViewModel.EditableUser)
-						.Subscribe();
-				});
-
 				//Interactions
 				ViewModel.CreateUserInteraction.RegisterHandler(interaction =>
 				{
 					var factory = service.GetService<ICreateUserDialogFactory>();
-					var dialog = factory.Create();
+					var dialog = factory.Create(interaction.Input.buttonName , interaction.Input.user);
+
+					dialog.ButtonName = interaction.Input.buttonName;
+
 					var result = dialog.ShowDialog() ?? false;
 
 					//TODO Make dialog return user
@@ -79,6 +73,7 @@ namespace UserViewer
 						Name = dialog.Name,
 						DateOfBirth = dialog.DateOfBirth,
 						Profession = dialog.Profession,
+						Id = dialog.Id,
 					};
 
 					interaction.SetOutput((User: user, IsConfirmed: result));

@@ -18,29 +18,29 @@ using System.Windows.Shapes;
 namespace UserViewer
 {
 	/// <summary>
-	/// Interaction logic for EditUserView.xaml
+	/// Interaction logic for UserDetialsView.xaml
 	/// </summary>
-	public partial class EditUserView
+	public partial class UserDetialsView
 	{
-		public EditUserView()
+		public UserDetialsView()
 		{
 			InitializeComponent();
 
 			this.WhenActivated(disposables =>
 			{
-				this.Bind(ViewModel,
+				this.OneWayBind(ViewModel,
 					vm => vm.Name,
 					v => v.Name.Text)
 				.DisposeWith(disposables);
 
-				this.Bind(ViewModel,
+				this.OneWayBind(ViewModel,
 					vm => vm.Profession,
 					v => v.Profession.Text)
 				.DisposeWith(disposables);
 
-				this.Bind(ViewModel,
+				this.OneWayBind(ViewModel,
 					vm => vm.DateOfBirth,
-					v => v.Date.SelectedDate)
+					v => v.Date.Text)
 				.DisposeWith(disposables);
 			});
 		}

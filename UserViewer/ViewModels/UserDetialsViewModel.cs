@@ -1,15 +1,10 @@
-﻿using AutoMapper;
-using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
+﻿using ReactiveUI.Fody.Helpers;
 using System;
-using System.Reactive;
 using UIFramework.Abstrations;
-using UserInfoFramework;
-using UserInfoFramework.Models;
 
 namespace UserViewer
 {
-	public class EditUserViewModel : ViewModelBase
+	public class UserDetialsViewModel : ViewModelBase
 	{
 		public Guid Id { get; set; }
 

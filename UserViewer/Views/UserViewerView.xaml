@@ -49,25 +49,23 @@
 															Command="{Binding DataContext.RemoveUserCommand, ElementName=UC}" 
                                                             CommandParameter="{Binding}"
 															ToolTip="@Delete"/>
-                        </Grid>
+							<Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="70,5" Content="Edit"
+															Command="{Binding DataContext.UpdateCommand, ElementName=UC}" 
+                                                            CommandParameter="{Binding}"
+															ToolTip="@Edit"/>
+						</Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
 
             <Border Background="{StaticResource ElementBrush}" Margin="8">
                 <StackPanel x:Name="EditPanel" >
-                    <rxui:ViewModelViewHost x:Name="EditPanelViewModel"
+					<rxui:ViewModelViewHost x:Name="EditPanelViewModel"
                                             Transition="Fade"
                                             Duration="0" 
                                             HorizontalContentAlignment="Stretch"
                                             VerticalContentAlignment="Stretch"/>
-                    <Button x:Name="UpdateUser" 
-                            Content="Update" 
-                            DockPanel.Dock="Right" 
-                            HorizontalAlignment="Right"
-                            Margin="8"
-                            VerticalAlignment="Center"/>
-                </StackPanel>
+				</StackPanel>
             </Border>
         </StackPanel>
     </DockPanel>

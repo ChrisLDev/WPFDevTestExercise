@@ -13,5 +13,10 @@ namespace UserViewer
         [Reactive] public string Name { get; set; }
         [Reactive] public DateTime DateOfBirth { get; set; }
         [Reactive] public string Profession { get; set; }
+		public Guid Id { get; set; }
+
+        [Reactive] public string ButtonName { get; set; }
+
+        [Reactive] public string Title { get; set; }
     }
 }

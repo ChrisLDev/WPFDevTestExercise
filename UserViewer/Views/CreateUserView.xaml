@@ -12,7 +12,7 @@
     SizeToContent="WidthAndHeight">
     <Border BorderBrush="{StaticResource ElementBorderBrush}" Background="{StaticResource BackgroundPanelBrush}" CornerRadius="4">
         <StackPanel Width="400">
-            <TextBlock Text="Create User" Style="{StaticResource Header}"/>
+            <TextBlock x:Name="Title" Text="Create User" Style="{StaticResource Header}"/>
             <StackPanel>
                 <TextBox x:Name="NameTxt" Tag="Name"/>
                 <TextBox x:Name="ProfessionTxt" Tag="Profession"/>
@@ -20,7 +20,7 @@
                 <DatePicker x:Name="DateOfBirthPicker" Margin="8"/>
             </StackPanel>
             <DockPanel Margin="8">
-                <Button x:Name="Create" Content="Create" DockPanel.Dock="Right"  Margin="8"/>
+				<Button x:Name="Create" Style="{StaticResource AltButton}" Content="{Binding ButtonName}" DockPanel.Dock="Right"  Margin="8"/>
                 <Button x:Name="Cancel" Content="Cancel" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="8"/>
             </DockPanel>
         </StackPanel>
