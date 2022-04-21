@@ -1,10 +1,11 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Hosting.CommonObjects;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using ReactiveUI;
 using Splat;
 using Splat.Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Hosting.ReactiveUI
 {
@@ -28,7 +29,7 @@ namespace Hosting.ReactiveUI
                     resolver.InitializeSplat();
                     resolver.InitializeReactiveUI();
 
-                    //TODO Add sql config
+                    services.Configure<ClientConfiguration>(cx.Configuration.GetSection(ClientConfiguration.OptionsName));
 
                     ConfigureServices(cx, services, bootstrapContainer);
 
@@ -45,7 +46,7 @@ namespace Hosting.ReactiveUI
             IConfigurationBuilder config)
         {
             config.Sources.Clear();
-            //config.AddJsonFile("appSettings.json");
+            config.AddJsonFile("appSettings.json");
         }
 
         /// <summary>
