@@ -15,7 +15,7 @@
 					</Border>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsFocused" Value="True">
-							<Setter TargetName="Border" Property="Background" Value="{StaticResource ElementBorderBrush}"/>
+							<Setter TargetName="Border" Property="Background" Value="{StaticResource BackgroundPanelBrush}"/>
 						</Trigger>
 						<Trigger Property="IsFocused" Value="False">
 							<Setter TargetName="Border" Property="Background" Value="transparent"/>

@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:UIFramework">
+
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/VectorIcon.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+
+	<!-- Edit Icon -->
+	<Style x:Key="EditIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+		<Setter Property="Icon" Value=""/>
+	</Style>
+
+	<!-- Add Icon -->
+	<Style x:Key="AddIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+		<Setter Property="Icon" Value=""/>
+	</Style>
+
+	<!-- Delete Icon -->
+	<Style x:Key="DeleteIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+		<Setter Property="Icon" Value=""/>
+	</Style>
+
+</ResourceDictionary>

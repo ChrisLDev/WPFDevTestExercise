@@ -40,7 +40,7 @@ namespace UserViewer
 				.DisposeWith(disposables);
 
 				this.Bind(ViewModel,
-					vm => vm.EditableUser,
+					vm => vm.UserDetials,
 					v => v.EditPanelViewModel.ViewModel)
 				.DisposeWith(disposables);
 
@@ -49,7 +49,7 @@ namespace UserViewer
 					v => v.AddNewUserBtn)
 				.DisposeWith(disposables);
 
-				this.WhenAnyValue(x => x.ViewModel.EditableUser)
+				this.WhenAnyValue(x => x.ViewModel.UserDetials)
 				.Subscribe(user =>
 				{
 					EditPanel.Visibility = user == null 

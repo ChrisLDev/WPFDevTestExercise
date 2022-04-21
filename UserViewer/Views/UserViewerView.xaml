@@ -1,72 +1,87 @@
 ﻿<rxui:ReactiveUserControl x:Class="UserViewer.UserViewerView"
-             xmlns:rxui="http://reactiveui.net"
-             x:TypeArguments="local:UserViewerViewModel"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:UserViewer"
-             mc:Ignorable="d"
+			 xmlns:rxui="http://reactiveui.net"
+			 x:TypeArguments="local:UserViewerViewModel"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:local="clr-namespace:UserViewer"
+			 xmlns:controls="clr-namespace:UIFramework;assembly=UIFramework"
+			 mc:Ignorable="d"
 			 x:Name="UC">
-    <DockPanel >
-        <StackPanel DockPanel.Dock="Top">
-            <TextBlock Text="Users" Style="{StaticResource Header}"/>
-            <DockPanel>
-                <Button x:Name="AddNewUserBtn" Content="New" Margin="8"/>
-                <TextBox x:Name="Search" Tag="Search" />
-            </DockPanel>
+	<Grid >
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="5"/>
+			<RowDefinition MinHeight="200" Height="2*"/>
+		</Grid.RowDefinitions>
+		<TextBlock Text="Users" Style="{StaticResource Header}" />
+			<DockPanel Grid.Row="1">
+			<Button x:Name="AddNewUserBtn"  Margin="8,8,0,8" ToolTip="Create New User">
+				<Button.Content>
+					<StackPanel Orientation="Horizontal">
+						<controls:VectorIcon Style="{StaticResource AddIcon}"/>
+						<TextBlock Text="New"/>
+					</StackPanel>
+				</Button.Content>
+			</Button>
+			<TextBox x:Name="Search" Tag="Search" />
+			</DockPanel>
 
-            <!--TODO: Change to list view and grid view-->
-            <ListBox x:Name="UsersList" >
-                <ListBox.Template>
-                    <ControlTemplate>
-                        <Border CornerRadius="4" Background="{StaticResource ElementBrush}">
-                            <DockPanel LastChildFill="True"  >
-                                <Grid DockPanel.Dock="Top" Height="30">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="220"></ColumnDefinition>
-                                        <ColumnDefinition Width="220"></ColumnDefinition>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="0" Margin="8,0">Name</Label>
-                                    <Label Grid.Column="1" >Date of Birth</Label>
-                                    <Label Grid.Column="2" Margin="8,0" HorizontalAlignment="Right">Actions</Label>
-                                </Grid>
-                                <ScrollViewer >
-                                    <ItemsPresenter />
-                                </ScrollViewer>
-                            </DockPanel>
-                        </Border>
-                    </ControlTemplate>
-                </ListBox.Template>
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid >
-                            <rxui:ViewModelViewHost ViewModel="{Binding}" 
-                                                    HorizontalContentAlignment="Stretch" 
-                                                    VerticalContentAlignment="Stretch" />
-                            <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,5" Content="Delete"
+			<!--TODO: Change to list view and grid view-->
+			<ListBox x:Name="UsersList" Grid.Row="2" Margin="8">
+				<ListBox.Template>
+					<ControlTemplate>
+						<Border CornerRadius="4" Background="{StaticResource ElementBrush}">
+							<DockPanel LastChildFill="True"  >
+								<Grid DockPanel.Dock="Top" Height="30">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="220"></ColumnDefinition>
+										<ColumnDefinition Width="220"></ColumnDefinition>
+										<ColumnDefinition Width="*"></ColumnDefinition>
+									</Grid.ColumnDefinitions>
+									<Label Grid.Column="0" Margin="8,0">Name</Label>
+									<Label Grid.Column="1" >Date of Birth</Label>
+									<Label Grid.Column="2" Margin="70,0" HorizontalAlignment="Right">Actions</Label>
+								</Grid>
+								<ScrollViewer >
+									<ItemsPresenter />
+								</ScrollViewer>
+							</DockPanel>
+						</Border>
+					</ControlTemplate>
+				</ListBox.Template>
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Grid >
+							<rxui:ViewModelViewHost ViewModel="{Binding}" 
+													HorizontalContentAlignment="Stretch" 
+													VerticalContentAlignment="Stretch" />
+						<Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,5" Style="{StaticResource DeleteButton}"
 															Command="{Binding DataContext.RemoveUserCommand, ElementName=UC}" 
-                                                            CommandParameter="{Binding}"
-															ToolTip="@Delete"/>
-							<Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="70,5" Content="Edit"
+															CommandParameter="{Binding}"
+															ToolTip="Delete"/>
+						<Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="30,5" Style="{StaticResource EditButton}"
 															Command="{Binding DataContext.UpdateCommand, ElementName=UC}" 
-                                                            CommandParameter="{Binding}"
-															ToolTip="@Edit"/>
+															CommandParameter="{Binding}"
+															ToolTip="Edit"/>
 						</Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
 
-            <Border Background="{StaticResource ElementBrush}" Margin="8">
-                <StackPanel x:Name="EditPanel" >
-					<rxui:ViewModelViewHost x:Name="EditPanelViewModel"
-                                            Transition="Fade"
-                                            Duration="0" 
-                                            HorizontalContentAlignment="Stretch"
-                                            VerticalContentAlignment="Stretch"/>
-				</StackPanel>
-            </Border>
-        </StackPanel>
-    </DockPanel>
+		<GridSplitter Grid.Row="3" ResizeDirection="Rows" HorizontalAlignment="Stretch" Background="{StaticResource AltElementBrush}" />
+
+		<Border Background="{StaticResource ElementBrush}" Margin="8" Padding="0,16" DockPanel.Dock="Bottom" Grid.Row="4">
+			<StackPanel x:Name="EditPanel" >
+				<rxui:ViewModelViewHost x:Name="EditPanelViewModel"
+											Transition="Fade"
+											Duration="0" 
+											HorizontalContentAlignment="Stretch"
+											VerticalContentAlignment="Stretch"/>
+			</StackPanel>
+		</Border>
+	</Grid>
 </rxui:ReactiveUserControl>

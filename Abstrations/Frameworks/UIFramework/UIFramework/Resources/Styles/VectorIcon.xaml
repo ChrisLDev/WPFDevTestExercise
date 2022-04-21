@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:controls="clr-namespace:UIFramework">
+
+	<Style x:Key="VectorIconFont" TargetType="{x:Type TextBlock}">
+		<Setter Property="FontFamily"           Value="{DynamicResource IconFontFamily}"/>
+		<Setter Property="VerticalAlignment"    Value="Center"/>
+		<Setter Property="HorizontalAlignment"  Value="Center"/>
+		<Setter Property="IsHitTestVisible"     Value="False"/>
+
+		<!-- OkMedIcon fallback, if not template style applied-->
+		<Setter Property="Text"                 Value=""/>
+	</Style>
+
+	<!-- Vector Icon -->
+	<Style TargetType="{x:Type controls:VectorIcon}">
+		<Setter Property="FontSize"     Value="{DynamicResource IconFontSize}"/>
+		<Setter Property="Foreground"   Value="{DynamicResource TextColour}"/>
+		<Setter Property="Padding"      Value="0"/>
+		<Setter Property="IsTabStop"    Value="False" />
+
+		<!-- OkMedIcon fallback, if not template style applied-->
+		<Setter Property="Icon"  Value=""/>
+
+		<!-- Template -->
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type controls:VectorIcon}">
+					<TextBlock Style="{StaticResource VectorIconFont}"
+							   Text="{TemplateBinding Icon}"
+							   FontSize="{TemplateBinding FontSize}"
+							   Foreground="{TemplateBinding Foreground}"
+							   Margin="{TemplateBinding Padding}"/>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+
+		<!-- Triggers -->
+		<Style.Triggers>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter Property="Opacity" Value="{DynamicResource Opacity_Disabled}" />
+			</Trigger>
+		</Style.Triggers>
+
+	</Style>
+
+</ResourceDictionary>

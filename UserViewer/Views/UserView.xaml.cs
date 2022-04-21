@@ -31,7 +31,7 @@ namespace UserViewer
 				this.OneWayBind(ViewModel,
 					vm => vm.DateOfBirth,
 					v => v.DateOfBirth.Text,
-					x => x.ToString())
+					x => x.ToString("dd/MM/yyyy"))
 				.DisposeWith(disposables);
 			});
 

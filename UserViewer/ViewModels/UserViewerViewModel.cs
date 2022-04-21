@@ -43,7 +43,7 @@ namespace UserViewer
 
 			this.WhenAnyValue(x => x.SelectedUser)
 				.WhereNotNull()
-				.Subscribe(user => EditableUser = _mapper.Map<UserDetialsViewModel>(user))
+				.Subscribe(user => UserDetials = _mapper.Map<UserDetialsViewModel>(user))
 				.DisposeWith(disposables);
 
 			base.OnActivation(disposables);
@@ -60,6 +60,8 @@ namespace UserViewer
 		{
 			Users = await GetUsers();
 			DisplayUsers = Users.ToList();
+			SelectedUser = null;
+			UserDetials = null;
 		}
 
 		private IEnumerable<UserViewModel> Users { get; set; } = new List<UserViewModel>();
@@ -68,7 +70,7 @@ namespace UserViewer
 
 		[Reactive] public UserViewModel SelectedUser { get; set; }
 
-		[Reactive] public UserDetialsViewModel EditableUser { get; set; }
+		[Reactive] public UserDetialsViewModel UserDetials { get; set; }
 
 		public Interaction<(string buttonName, User user), (User User, bool IsConfirmed)> CreateUserInteraction { get; set; } =
 			new(RxApp.MainThreadScheduler);
