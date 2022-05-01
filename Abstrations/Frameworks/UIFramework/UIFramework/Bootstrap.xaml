@@ -5,6 +5,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Fonts.xaml" />
         <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Icons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Images.xaml" />
         <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/ListBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/TextBlock.xaml" />
         <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/TextBox.xaml" />
@@ -16,7 +17,6 @@
         <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/WindowsButtons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/Calendar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/NumericUpDownStyle.xaml" />
-
         <ResourceDictionary>
             <local:ThemesController x:Key="ThemesController" />
         </ResourceDictionary>
