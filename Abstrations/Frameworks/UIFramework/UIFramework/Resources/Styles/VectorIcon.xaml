@@ -6,9 +6,8 @@
 		<Setter Property="FontFamily"           Value="{DynamicResource IconFontFamily}"/>
 		<Setter Property="VerticalAlignment"    Value="Center"/>
 		<Setter Property="HorizontalAlignment"  Value="Center"/>
-		<Setter Property="IsHitTestVisible"     Value="False"/>
-
-		<!-- OkMedIcon fallback, if not template style applied-->
+        <Setter Property="IsHitTestVisible"     Value="False"/>
+        <!-- OkMedIcon fallback, if not template style applied-->
 		<Setter Property="Text"                 Value=""/>
 	</Style>
 

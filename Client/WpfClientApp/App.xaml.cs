@@ -50,6 +50,8 @@ namespace WpfClientApp
 			services.AddSingleton<MainWindowViewModel>();
 			services.AddSingleton<IViewFor<MainWindowViewModel>, MainWindow>();
 
+			services.ConfigureUI();
+
 			services.RegisterServices()
 				.GetAwaiter()
 				.GetResult();

@@ -19,7 +19,7 @@
 		</Grid.RowDefinitions>
 		<TextBlock Text="Users" Style="{StaticResource Header}" />
 			<DockPanel Grid.Row="1">
-			<Button x:Name="AddNewUserBtn"  Margin="8,8,0,8" ToolTip="Create New User">
+            <Button x:Name="AddNewUserBtn"  Margin="8,8,0,8" ToolTip="Create New User">
 				<Button.Content>
 					<StackPanel Orientation="Horizontal">
 						<controls:VectorIcon Style="{StaticResource AddIcon}"/>
@@ -27,14 +27,21 @@
 					</StackPanel>
 				</Button.Content>
 			</Button>
-			<TextBox x:Name="Search" Tag="Search" />
-			</DockPanel>
+			<TextBox x:Name="Search" Tag="Search"/>
+            <ComboBox x:Name="Themes" HorizontalAlignment="Right" Margin="8">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate DataType="controls:ThemeResourceDictionary">
+                        <TextBlock Text="{Binding DisplayName}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </DockPanel>
 
 			<!--TODO: Change to list view and grid view-->
 			<ListBox x:Name="UsersList" Grid.Row="2" Margin="8">
 				<ListBox.Template>
 					<ControlTemplate>
-						<Border CornerRadius="4" Background="{StaticResource ElementBrush}">
+						<Border CornerRadius="4" Background="{DynamicResource ElementBrush}">
 							<DockPanel LastChildFill="True"  >
 								<Grid DockPanel.Dock="Top" Height="30">
 									<Grid.ColumnDefinitions>
@@ -44,7 +51,7 @@
 									</Grid.ColumnDefinitions>
 									<Label Grid.Column="0" Margin="8,0">Name</Label>
 									<Label Grid.Column="1" >Date of Birth</Label>
-									<Label Grid.Column="2" Margin="70,0" HorizontalAlignment="Right">Actions</Label>
+									<Label Grid.Column="2" Margin="45,0" HorizontalAlignment="Right">Actions</Label>
 								</Grid>
 								<ScrollViewer >
 									<ItemsPresenter />
@@ -72,9 +79,9 @@
 				</ListBox.ItemTemplate>
 			</ListBox>
 
-		<GridSplitter Grid.Row="3" ResizeDirection="Rows" HorizontalAlignment="Stretch" Background="{StaticResource AltElementBrush}" />
+        <GridSplitter Grid.Row="3" ResizeDirection="Rows" HorizontalAlignment="Stretch" Background="{DynamicResource AltElementBrush}" />
 
-		<Border Background="{StaticResource ElementBrush}" Margin="8" Padding="0,16" DockPanel.Dock="Bottom" Grid.Row="4">
+        <Border Background="{DynamicResource ElementBrush}" Margin="8" Padding="0,16" DockPanel.Dock="Bottom" Grid.Row="4">
 			<StackPanel x:Name="EditPanel" >
 				<rxui:ViewModelViewHost x:Name="EditPanelViewModel"
 											Transition="Fade"

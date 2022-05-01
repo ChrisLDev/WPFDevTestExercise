@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Extensions;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
@@ -8,7 +9,9 @@ using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
+using UIFramework;
 using UIFramework.Abstrations;
+using UIFramework.Abstrations.Theme;
 using UserInfoFramework;
 using UserInfoFramework.Models;
 
@@ -18,13 +21,16 @@ namespace UserViewer
 	{
 		private readonly IUserInfoService _userInfoService;
 		private readonly IMapper _mapper;
+		public readonly IThemesController _themesController;
 
 		public UserViewerViewModel(
 			IUserInfoService userInfoService,
+			IThemesController themesController,
 			IMapper mapper)
 		{
 			_mapper = mapper;
 			_userInfoService = userInfoService;
+			_themesController = themesController;
 		}
 
 		protected override void OnActivation(CompositeDisposable disposables)
@@ -46,16 +52,19 @@ namespace UserViewer
 				.Subscribe(user => UserDetials = _mapper.Map<UserDetialsViewModel>(user))
 				.DisposeWith(disposables);
 
-			base.OnActivation(disposables);
+            AvailableThemes = _themesController.AvailableThemes.ToList();
+
+            this.WhenAnyValue(x => x.SelectedTheme)
+                .Subscribe(theme => _themesController.CurrentTheme = theme)
+                .DisposeWith(disposables);
+
+
+            base.OnActivation(disposables);
 		}
 
-		private async Task<IEnumerable<UserViewModel>> GetUsers()
-		{
-			var users = await _userInfoService.GetAllUsers();
-
-			return _mapper.Map<List<UserViewModel>>(users);
-		}
-
+		private async Task<IEnumerable<UserViewModel>> GetUsers() =>
+			await _mapper.MapAsync<List<UserViewModel>, IEnumerable<User>>(_userInfoService.GetAllUsers());
+	
 		private async Task RefreshUsers()
 		{
 			Users = await GetUsers();
@@ -70,9 +79,10 @@ namespace UserViewer
 
 		[Reactive] public UserViewModel SelectedUser { get; set; }
 
-		[Reactive] public UserDetialsViewModel UserDetials { get; set; }
+		[Reactive] public UserDetialsViewModel UserDetials {
+			get; set; }
 
-		public Interaction<(string buttonName, User user), (User User, bool IsConfirmed)> CreateUserInteraction { get; set; } =
+		public Interaction<(string buttonName, User user), (User User, bool IsConfirmed)> UserInteraction { get; set; } =
 			new(RxApp.MainThreadScheduler);
 
 		[Reactive] public string Search { get; set; }
@@ -83,14 +93,13 @@ namespace UserViewer
 				var userModel = _mapper.Map<User>(user);
 
 				await _userInfoService.DeleteUser(userModel);
-
 				await RefreshUsers();
 			});
 
 		public ReactiveCommand<Unit, Unit> CreateUserCommand =>
 			ReactiveCommand.CreateFromTask(async () =>
 			{
-				var result = await CreateUserInteraction.Handle(("Create",null));
+				var result = await UserInteraction.Handle(("Create",null));
 
                 if (result.IsConfirmed)
                 {
@@ -104,14 +113,17 @@ namespace UserViewer
 			{
 				var userModel = _mapper.Map<User>(user);
 
-				var result = await CreateUserInteraction.Handle(("Edit", userModel));
+				var result = await UserInteraction.Handle(("Edit", userModel));
 
 				if (result.IsConfirmed)
 				{
 					await _userInfoService.UpdateUser(result.User);
-
 					await RefreshUsers();
 				}
 			});
+
+		[Reactive] public List<ThemeResourceDictionary> AvailableThemes { get; set; }
+
+		[Reactive] public ThemeResourceDictionary SelectedTheme { get; set; }
 	}
 }

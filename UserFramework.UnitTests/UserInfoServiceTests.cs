@@ -41,7 +41,7 @@ namespace UserFramework.UnitTests
         }
 
         [Fact]
-        public async Task GetAllUsers_ReturnsIenumerableOfUsers()
+        public async Task GetAllUsers_ReturnsIEnumerableOfUsers()
         {
             // Arrange
             var expected = _fixture
@@ -67,7 +67,7 @@ namespace UserFramework.UnitTests
         }
 
         [Fact]
-        public async Task GetUser_ReturnsASignleUser()
+        public async Task GetUser_ReturnsASingleUser()
         {
             // Arrange
             var expected = _fixture

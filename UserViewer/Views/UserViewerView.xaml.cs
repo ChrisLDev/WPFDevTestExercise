@@ -44,12 +44,20 @@ namespace UserViewer
 					v => v.EditPanelViewModel.ViewModel)
 				.DisposeWith(disposables);
 
-				this.BindCommand(ViewModel,
-					vm => vm.CreateUserCommand,
-					v => v.AddNewUserBtn)
-				.DisposeWith(disposables);
+				this.OneWayBind(ViewModel,
+					vm => vm.AvailableThemes,
+					v => v.Themes.ItemsSource).DisposeWith(disposables);
 
-				this.WhenAnyValue(x => x.ViewModel.UserDetials)
+				this.Bind(ViewModel,
+					vm => vm.SelectedTheme,
+					v => v.Themes.SelectedItem).DisposeWith(disposables);
+
+                this.BindCommand(ViewModel,
+                    vm => vm.CreateUserCommand,
+                    v => v.AddNewUserBtn)
+                .DisposeWith(disposables);
+
+                this.WhenAnyValue(x => x.ViewModel.UserDetials)
 				.Subscribe(user =>
 				{
 					EditPanel.Visibility = user == null 
@@ -58,7 +66,7 @@ namespace UserViewer
                 }).DisposeWith(disposables);
 
 				//Interactions
-				ViewModel.CreateUserInteraction.RegisterHandler(interaction =>
+				ViewModel.UserInteraction.RegisterHandler(interaction =>
 				{
 					var factory = service.GetService<ICreateUserDialogFactory>();
 					var dialog = factory.Create(interaction.Input.buttonName , interaction.Input.user);

@@ -21,4 +21,9 @@
 		<Setter Property="Icon" Value=""/>
 	</Style>
 
+    <!-- Delete Icon -->
+    <Style x:Key="ChevronDownBoldIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+        <Setter Property="Icon" Value=""/>
+    </Style>
+
 </ResourceDictionary>

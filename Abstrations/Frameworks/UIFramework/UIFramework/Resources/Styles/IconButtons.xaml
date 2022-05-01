@@ -4,7 +4,7 @@
 
 
 	<ResourceDictionary.MergedDictionaries>
-		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Colours.xaml" />
+		<!--<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Colours.xaml" />-->
 		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Icons.xaml" />
 	</ResourceDictionary.MergedDictionaries>
 
@@ -12,7 +12,7 @@
 	<Style x:Key="IconButton" TargetType="{x:Type Button}">
 		<Setter Property="Cursor"       Value="Hand" />
 		<Setter Property="FontSize"     Value="20"/>
-		<Setter Property="Foreground"   Value="{StaticResource TextColour}"/>
+        <Setter Property="Foreground"   Value="{DynamicResource TextColour}"/>
 		<Setter Property="Padding"      Value="10"/>
 		<Setter Property="Template">
 			<Setter.Value>
@@ -37,12 +37,12 @@
 
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsMouseOver" Value="True">
-							<Setter TargetName="Core" Property="BorderBrush" Value="{StaticResource ElementBorderBrush}"/>
-							<Setter TargetName="Core" Property="Background" Value="{StaticResource ElementBorderBrush}"/>
+                            <Setter TargetName="Core" Property="BorderBrush" Value="{DynamicResource ElementBorderBrush}"/>
+                            <Setter TargetName="Core" Property="Background" Value="{DynamicResource ElementBorderBrush}"/>
 						</Trigger>
 						<Trigger Property="IsPressed" Value="True">
-							<Setter TargetName="Core" Property="BorderBrush"   Value="{StaticResource ElementBrush}"/>
-							<Setter TargetName="Core" Property="Background"   Value="{StaticResource ElementBrush}"/>
+                            <Setter TargetName="Core" Property="BorderBrush"   Value="{DynamicResource ElementBrush}"/>
+                            <Setter TargetName="Core" Property="Background"   Value="{DynamicResource ElementBrush}"/>
 						</Trigger>
 						<Trigger Property="IsEnabled" Value="False">
 							<Setter TargetName="Core" Property="Opacity"    Value="{DynamicResource Opacity_Disabled}"/>

@@ -7,10 +7,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UserViewer"
-             mc:Ignorable="d"
-    ResizeMode="NoResize"
-    SizeToContent="WidthAndHeight">
-    <Border BorderBrush="{StaticResource ElementBorderBrush}" Background="{StaticResource BackgroundPanelBrush}" CornerRadius="4">
+             mc:Ignorable="d" 
+             WindowStyle="None" 
+             AllowsTransparency="True" 
+             Background="Transparent"
+             ResizeMode="NoResize"
+             SizeToContent="WidthAndHeight">
+    <StackPanel Margin="8">
+        <Border BorderBrush="{DynamicResource ElementBorderBrush}" Background="{DynamicResource BackgroundPanelBrush}" CornerRadius="8">
         <StackPanel Width="400">
             <TextBlock x:Name="Title" Text="Create User" Style="{StaticResource Header}"/>
             <StackPanel>
@@ -24,5 +28,9 @@
                 <Button x:Name="Cancel" Content="Cancel" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="8"/>
             </DockPanel>
         </StackPanel>
+        <Border.Effect>
+                <DropShadowEffect Color="{DynamicResource ShadowColour}" ShadowDepth="0" BlurRadius="10"/>
+        </Border.Effect>
     </Border>
+    </StackPanel>
 </rxui:ReactiveWindow>
