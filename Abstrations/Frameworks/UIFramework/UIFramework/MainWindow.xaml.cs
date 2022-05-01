@@ -35,6 +35,8 @@ namespace UIFramework
                     v => v.MainContentHost.ViewModel)
                 .DisposeWith(disposables);
             });
+
+            this.restoreButton.Visibility = Visibility.Collapsed;
         }
 
         private void OnMinimizeButtonClick(object sender, RoutedEventArgs e)
@@ -52,6 +54,7 @@ namespace UIFramework
             {
                 this.WindowState = WindowState.Maximized;
             }
+            RefreshMaximizeRestoreButton();
         }
 
         private void OnCloseButtonClick(object sender, RoutedEventArgs e)

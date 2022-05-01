@@ -15,19 +15,12 @@
 						BorderBrush="{DynamicResource ElementBorderBrush}"
 						Background="{DynamicResource ElementBrush}"
 						BorderThickness="1">
-						
-
+				
 						<!-- Text style is based on TextBlock base style -->
-						<ContentPresenter Margin="{StaticResource ControlMargin}"
+						<ContentPresenter Margin="8"
 							HorizontalAlignment="Left"
 							VerticalAlignment="Top" />
 
-						<!-- uses TextBlock base style, if a change is require create a new style -->
-						<!--<TextBlock x:Name="Content" 
-								   Margin="{StaticResource ControlMargin}"
-								   HorizontalAlignment="Left"
-								   VerticalAlignment="Top"
-								   Text="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Content}"/>-->
 					</Border>
 					<ControlTemplate.Triggers>
 						<Trigger Property="HasDropShadow" Value="true">

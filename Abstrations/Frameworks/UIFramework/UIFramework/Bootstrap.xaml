@@ -16,6 +16,7 @@
         <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/ScrollBar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/WindowsButtons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/Calendar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/ToolTip.xaml" />
         <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Styles/NumericUpDownStyle.xaml" />
         <ResourceDictionary>
             <local:ThemesController x:Key="ThemesController" />

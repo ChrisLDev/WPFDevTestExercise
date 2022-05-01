@@ -36,4 +36,29 @@
         <Setter Property="Icon" Value=""/>
     </Style>
 
+    <!-- Settings Icon -->
+    <Style x:Key="SettingsIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+        <Setter Property="Icon" Value=""/>
+    </Style>
+
+    <!-- Minimise Icon -->
+    <Style x:Key="MinimiseIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+        <Setter Property="Icon" Value=""/>
+    </Style>
+
+    <!-- Maximise Icon -->
+    <Style x:Key="MaximiseIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+        <Setter Property="Icon" Value=""/>
+    </Style>
+
+    <!-- Restore Icon -->
+    <Style x:Key="RestoreIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+        <Setter Property="Icon" Value=""/>
+    </Style>
+
+    <!-- Close Icon -->
+    <Style x:Key="CloseIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+        <Setter Property="Icon" Value=""/>
+    </Style>
+
 </ResourceDictionary>

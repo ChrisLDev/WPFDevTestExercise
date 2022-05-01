@@ -1,11 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					xmlns:controls="clr-namespace:UIFramework">
-
-
-	<ResourceDictionary.MergedDictionaries>
-		<!--<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Colours.xaml" />-->
-		<ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Icons.xaml" />
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/UIFramework;component/Resources/Icons.xaml" />
 	</ResourceDictionary.MergedDictionaries>
 
 	<!-- Icon Button -->
@@ -71,6 +69,45 @@
 		<Setter Property="Content" Value="{DynamicResource EditIcon}"/>
 		<Setter Property="ToolTip" Value="Edit"/>
 	</Style>
+
+    <!--Settings Button-->
+    <Style x:Key="SettingsButton" TargetType="{x:Type Button}" BasedOn="{StaticResource IconButton}">
+        <Setter Property="Content" Value="{DynamicResource SettingsIcon}"/>
+        <Setter Property="ToolTip" Value="Settings"/>
+    </Style>
+
+    <!--Minimise Button-->
+    <Style x:Key="MinimiseButton" TargetType="{x:Type Button}" BasedOn="{StaticResource IconButton}">
+        <Setter Property="Content" Value="{DynamicResource MinimiseIcon}"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Padding" Value="15"/>
+        <Setter Property="ToolTip" Value="Minimise"/>
+    </Style>
+
+    <!--Maximise Button-->
+    <Style x:Key="MaximiseButton" TargetType="{x:Type Button}" BasedOn="{StaticResource IconButton}">
+        <Setter Property="Content" Value="{DynamicResource MaximiseIcon}"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Padding" Value="15"/>
+        <Setter Property="ToolTip" Value="Maximise"/>
+    </Style>
+
+    <!--Restore Button-->
+    <Style x:Key="RestoreButton" TargetType="{x:Type Button}" BasedOn="{StaticResource IconButton}">
+        <Setter Property="Content" Value="{DynamicResource RestoreIcon}"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Padding" Value="15"/>
+        <Setter Property="ToolTip" Value="Restore"/>
+    </Style>
+
+    <!--Close Button-->
+    <Style x:Key="CloseButton" TargetType="{x:Type Button}" BasedOn="{StaticResource IconButton}">
+        <Setter Property="Content" Value="{DynamicResource CloseIcon}"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Padding" Value="15"/>
+        <Setter Property="ToolTip" Value="Close"/>
+    </Style>
+
 
 
 </ResourceDictionary>
