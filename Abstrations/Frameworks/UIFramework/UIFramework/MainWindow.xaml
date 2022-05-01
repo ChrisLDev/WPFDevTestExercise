@@ -80,6 +80,10 @@
             </Button>
         </Grid>
 
+
+        <Grid>
+            
+        
         <!--Content-->
         <rxui:ViewModelViewHost x:Name="MainContentHost" 
 				HorizontalContentAlignment="Stretch" 
@@ -88,5 +92,14 @@
 				Duration="0">
             <TextBlock Text="MainContent" TextAlignment="Center" FontSize="50" />
         </rxui:ViewModelViewHost>
+
+        <rxui:ViewModelViewHost x:Name="SettingsContentHost" Visibility="Collapsed"
+				HorizontalContentAlignment="Stretch" 
+				VerticalContentAlignment="Stretch"
+				Transition="Fade" 
+				Duration="0">
+            <TextBlock Text="SettingsContent" TextAlignment="Center" FontSize="50" />
+        </rxui:ViewModelViewHost>
+        </Grid>
     </DockPanel>
 </rxui:ReactiveWindow>

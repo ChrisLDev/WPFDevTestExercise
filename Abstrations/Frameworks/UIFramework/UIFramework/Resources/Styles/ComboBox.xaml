@@ -50,7 +50,8 @@
 							BorderBrush="{x:Null}"
 							CornerRadius="4,0,0,4" 
 							BorderThickness="0"
-							Padding="{DynamicResource BorderPadding}">
+                           
+							Padding="8">
 						<Grid>
 							<TextBlock x:Name="Prompt" Text="{TemplateBinding Tag}" Style="{DynamicResource Placeholder}" Padding="0,-2"/>
 							<ScrollViewer x:Name="PART_ContentHost" Padding="2,0"/>

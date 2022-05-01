@@ -4,7 +4,7 @@
                     DisplayName="The Dark Mode">
 
     <Color x:Key="LightBackgroundColour">#2e2e2e</Color>
-    <Color x:Key="BorderColour">#2e2e2e</Color>
+    <Color x:Key="BorderColour">#4f4f4f</Color>
     <Color x:Key="ElementColour">#3d3d3d</Color>
     <Color x:Key="AltElementColour">#4e4e4e</Color>
 	<Color x:Key="Text">white</Color>

@@ -11,6 +11,7 @@ using ReactiveUI;
 using Microsoft.EntityFrameworkCore;
 using UserViewer;
 using DependencyInjection;
+using AppSettings;
 
 namespace WpfClientApp
 {
@@ -32,10 +33,13 @@ namespace WpfClientApp
 			dbContexts.ForEach(context => context.Database.Migrate());
 
 			var featureVm = Container.GetService<UserViewerViewModel>();
+			var settingsVm = Container.GetService<AppSettingsViewModel>();
 
 			var mainWindow = Container.GetService<MainWindowViewModel>();
 
+			settingsVm.MainWindowViewModel = mainWindow;
 			mainWindow.MainContentViewModel = featureVm;
+			mainWindow.SettingsViewModel = settingsVm;
 
 			MainWindow = (Window)Container.GetService<IViewFor<MainWindowViewModel>>();
 			((ReactiveWindow<MainWindowViewModel>)MainWindow).ViewModel = mainWindow;

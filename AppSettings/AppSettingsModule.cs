@@ -8,7 +8,7 @@ namespace AppSettings
     {
         public void RegisterServices(IServiceCollection service)
         {
-            service.AddTransient<AppSettingsView>();
+            service.AddTransient<AppSettingsViewModel>();
             service.AddTransient<IViewFor<AppSettingsViewModel>, AppSettingsView>();
         }
     }

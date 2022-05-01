@@ -7,9 +7,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                xmlns:local="clr-namespace:AppSettings"
-             mc:Ignorable="d">
-    <DockPanel>
-       
+             mc:Ignorable="d" Background="{DynamicResource BackgroundPanelBrush}">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel>
+            <TextBlock Text="Settings" Style="{StaticResource Header}"/>
+            <Button x:Name="CloseSettings" Style="{StaticResource CloseButton}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        </DockPanel>
 
-    </DockPanel>
+        <DockPanel Grid.Row="1">
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top">
+                <TextBlock Text="Theme"/>
+                <ComboBox x:Name="Themes" Margin="8">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate DataType="controls:ThemeResourceDictionary">
+                            <TextBlock Text="{Binding DisplayName}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
 </rxui:ReactiveUserControl>

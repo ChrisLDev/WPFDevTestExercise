@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ReactiveUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Disposables;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +25,21 @@ namespace AppSettings
         public AppSettingsView()
         {
             InitializeComponent();
+
+            this.WhenActivated(disposables =>
+            {
+                this.BindCommand(ViewModel,
+                    vm => vm.CloseSettingsCommand,
+                    v => v.CloseSettings).DisposeWith(disposables);
+
+                this.OneWayBind(ViewModel,
+                    vm => vm.AvailableThemes,
+                    v => v.Themes.ItemsSource).DisposeWith(disposables);
+
+                this.Bind(ViewModel,
+                    vm => vm.SelectedTheme,
+                    v => v.Themes.SelectedItem).DisposeWith(disposables);
+            });
         }
     }
 }

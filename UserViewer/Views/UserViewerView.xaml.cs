@@ -44,13 +44,7 @@ namespace UserViewer
 					v => v.EditPanelViewModel.ViewModel)
 				.DisposeWith(disposables);
 
-				this.OneWayBind(ViewModel,
-					vm => vm.AvailableThemes,
-					v => v.Themes.ItemsSource).DisposeWith(disposables);
-
-				this.Bind(ViewModel,
-					vm => vm.SelectedTheme,
-					v => v.Themes.SelectedItem).DisposeWith(disposables);
+				
 
                 this.BindCommand(ViewModel,
                     vm => vm.CreateUserCommand,

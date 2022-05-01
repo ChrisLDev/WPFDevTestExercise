@@ -28,13 +28,7 @@
 				</Button.Content>
 			</Button>
 			<TextBox x:Name="Search" Tag="Search"/>
-            <ComboBox x:Name="Themes" HorizontalAlignment="Right" Margin="8">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate DataType="controls:ThemeResourceDictionary">
-                        <TextBlock Text="{Binding DisplayName}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+           
         </DockPanel>
 
 			<!--TODO: Change to list view and grid view-->

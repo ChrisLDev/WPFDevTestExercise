@@ -21,16 +21,16 @@ namespace UserViewer
 	{
 		private readonly IUserInfoService _userInfoService;
 		private readonly IMapper _mapper;
-		public readonly IThemesController _themesController;
+		
 
 		public UserViewerViewModel(
 			IUserInfoService userInfoService,
-			IThemesController themesController,
+			
 			IMapper mapper)
 		{
 			_mapper = mapper;
 			_userInfoService = userInfoService;
-			_themesController = themesController;
+			
 		}
 
 		protected override void OnActivation(CompositeDisposable disposables)
@@ -52,11 +52,7 @@ namespace UserViewer
 				.Subscribe(user => UserDetials = _mapper.Map<UserDetialsViewModel>(user))
 				.DisposeWith(disposables);
 
-            AvailableThemes = _themesController.AvailableThemes.ToList();
-
-            this.WhenAnyValue(x => x.SelectedTheme)
-                .Subscribe(theme => _themesController.CurrentTheme = theme)
-                .DisposeWith(disposables);
+           
 
 
             base.OnActivation(disposables);
@@ -122,8 +118,6 @@ namespace UserViewer
 				}
 			});
 
-		[Reactive] public List<ThemeResourceDictionary> AvailableThemes { get; set; }
-
-		[Reactive] public ThemeResourceDictionary SelectedTheme { get; set; }
+	
 	}
 }

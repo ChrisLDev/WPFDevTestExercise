@@ -34,6 +34,29 @@ namespace UIFramework
                     vm => vm.MainContentViewModel,
                     v => v.MainContentHost.ViewModel)
                 .DisposeWith(disposables);
+
+                this.OneWayBind(ViewModel,
+                    vm => vm.SettingsViewModel,
+                    v => v.SettingsContentHost.ViewModel)
+                .DisposeWith(disposables);
+
+                this.BindCommand(ViewModel,
+                    vm => vm.OpenSettingsCommand,
+                    v => v.Settings)
+                .DisposeWith(disposables);
+
+                this.WhenAnyValue(x => x.ViewModel.IsSettingsActive).Subscribe(isActive =>
+                {
+                    if (isActive)
+                    {
+                        SettingsContentHost.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        SettingsContentHost.Visibility = Visibility.Collapsed;
+                    }
+                })
+                .DisposeWith(disposables);
             });
 
             this.restoreButton.Visibility = Visibility.Collapsed;
