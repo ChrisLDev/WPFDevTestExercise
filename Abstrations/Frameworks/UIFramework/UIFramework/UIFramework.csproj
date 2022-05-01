@@ -28,4 +28,8 @@
     </Page>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Events\" />
+  </ItemGroup>
+
 </Project>

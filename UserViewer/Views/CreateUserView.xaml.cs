@@ -35,7 +35,8 @@ namespace UserViewer
             {
                 this.Bind(ViewModel,
                 vm => vm.DateOfBirth,
-                v => v.DateOfBirthPicker.SelectedDate).DisposeWith(disposables);
+                v => v.DateOfBirthPicker.DateTime)
+                .DisposeWith(disposables);
 
                 this.Bind(ViewModel,
                vm => vm.Name,
@@ -53,12 +54,12 @@ namespace UserViewer
                vm => vm.Title,
                v => v.Title.Text).DisposeWith(disposables);
 
-
+                DateOfBirthPicker.MaxDateTime = DateTime.Today;
             });
         }
         [Reactive] public string ButtonName { get; set; }
 
-        public DateTime DateOfBirth => DateOfBirthPicker.SelectedDate ?? default;
+        public DateTime DateOfBirth => DateOfBirthPicker.DateTime;
 
         public string Profession => ProfessionTxt.Text;
 

@@ -1,0 +1,165 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:controls="clr-namespace:UIFramework">
+
+	<!-- Up Arrow Repeat Button -->
+	<ControlTemplate x:Key="UpArrow" TargetType="{x:Type RepeatButton}">
+		<Border x:Name="Border"
+				BorderBrush="{x:Null}"
+				Background="{DynamicResource Transparent}"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"		
+				Margin="4,0,0,0">
+
+			<controls:VectorIcon x:Name="Arrow"
+				Style="{DynamicResource ChevronUpBoldIcon}" 
+				Foreground="{DynamicResource DarkGrayForeground}"
+				FontSize="8"
+				VerticalAlignment="Stretch"
+				HorizontalAlignment="Stretch"/>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsMouseOver" Value="true">
+				<Setter TargetName="Arrow" Property="Foreground" Value="{DynamicResource AccentBrush}"/>
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter TargetName="Border" Property="Opacity" Value="0.8" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+
+	<!-- Down Arrow Repeat Button -->
+	<ControlTemplate x:Key="DownArrow" TargetType="{x:Type RepeatButton}">
+		<Border x:Name="Border"
+				BorderBrush="{x:Null}"
+				Background="{DynamicResource Transparent}"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"		
+				Margin="4,0,0,0">
+
+			<controls:VectorIcon x:Name="Arrow"
+				Style="{DynamicResource ChevronDownBoldIcon}" 
+				Foreground="{DynamicResource DarkGrayForeground}"
+				FontSize="8"
+				VerticalAlignment="Stretch"
+				HorizontalAlignment="Stretch"/>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsMouseOver" Value="true">
+				<Setter TargetName="Arrow" Property="Foreground" Value="{DynamicResource AccentBrush}"/>
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter TargetName="Border" Property="Opacity" Value="0.8" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+
+	<!-- Numeric UpDown -->
+	<Style x:Key="NumericUpDownStyle" 
+		   TargetType="{x:Type TextBox}">
+		<Setter Property="Foreground"           Value="{DynamicResource TextColour}"/>
+		<!--<Setter Property="FontFamily"           Value="{DynamicResource DefaultFontFamily}"/>
+		<Setter Property="FontSize"             Value="{DynamicResource DefaultFontSize}"/>
+		<Setter Property="FontWeight"           Value="{DynamicResource DefaultFontWeight}"/>
+		<Setter Property="FontStyle"            Value="{DynamicResource DefaultFontStyle}"/>
+		<Setter Property="MinWidth"				Value="{DynamicResource ControlMinWidth}" />
+		<Setter Property="MinHeight"			Value="{DynamicResource ControlMinHeight}" />
+		<Setter Property="Margin"				Value="{DynamicResource ControlMargin}" />
+		<Setter Property="VerticalAlignment"	Value="{DynamicResource ControlVerticalAlignment}" />
+		<Setter Property="HorizontalAlignment"	Value="{DynamicResource ControlHorizontalAlignment}" />
+		<Setter Property="AllowDrop"			Value="{DynamicResource ControlAllowDrop}" />-->
+		<Setter Property="IsTabStop"			Value="False"/>
+	
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TextBox}">
+					<Border x:Name="Border" 
+							Background="{DynamicResource ElementBrush}"
+							BorderBrush="{DynamicResource ElementBorderBrush}"
+							CornerRadius="4" 
+							BorderThickness="2"
+							Padding="4">
+						
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition/>
+								<ColumnDefinition Width="20"/>
+							</Grid.ColumnDefinitions>
+							
+							<!-- Text Input -->
+							<ScrollViewer x:Name="PART_ContentHost" Padding="2,0"/>
+
+							<!-- Focus bar -->
+							<Border x:Name="isSelectedBar" Background="Transparent"
+									BorderThickness="1" Margin="-4,-4,0,-4" Height="2" VerticalAlignment="Bottom"/>
+
+							<!-- Repeat Button Border -->
+							<Border x:Name="RepeatBorder"
+									Grid.Column="1"
+									Background="{DynamicResource ElementBrush}"
+									BorderBrush="{DynamicResource ElementBorderBrush}"
+									BorderThickness="1,0,0,0" 
+									CornerRadius="0,4,4,0"
+									Margin="0,-4,-4,-4"
+									Padding="0"/>
+
+							<!-- Repeat Buttons -->
+							<DockPanel x:Name="RepeatPanel" Grid.Column="1">
+								
+								<!-- Increment -->
+								<RepeatButton x:Name="PART_Increment"
+										Template="{DynamicResource UpArrow}"
+										Content="Button"
+										DockPanel.Dock="Top"
+										Margin="0,0,0,1"/>
+
+								<!-- Decrement -->
+								<RepeatButton x:Name="PART_Decrement"
+										Template="{DynamicResource DownArrow}"
+										Content="Button"
+										DockPanel.Dock="Top"
+										Margin="0,1,0,0"/>
+							</DockPanel>
+
+						</Grid>
+
+					</Border>
+
+					<ControlTemplate.Triggers>
+
+						<Trigger Property="IsKeyboardFocusWithin" Value="True">
+							<Setter TargetName="isSelectedBar" Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+						</Trigger>
+					
+						<Trigger Property="IsEnabled" Value="False">
+							<!--<Setter TargetName="isSelectedBar"		Property="BorderBrush"	Value="{DynamicResource BorderBackground_Disabled}" />-->
+							<!--<Setter TargetName="PART_ContentHost"	Property="Opacity"		Value="{DynamicResource Opacity_Disabled}"/>
+
+							<Setter TargetName="Border"			Property="Background"		Value="{DynamicResource BorderBackground_Disabled}"/>
+							<Setter TargetName="RepeatBorder"	Property="Background"		Value="{DynamicResource BorderBackground_Disabled}"/>-->
+						</Trigger>
+						
+						<Trigger Property="IsReadOnly" Value="True">
+							<!--<Setter TargetName="isSelectedBar"	Property="BorderBrush"		Value="{DynamicResource BorderBackground_Disabled}" />
+							<Setter TargetName="Border"			Property="Background"		Value="{DynamicResource BorderBackground_ReadOnly}"/>-->
+
+							<Setter TargetName="RepeatPanel"	Property="IsEnabled"		Value="False"/>
+							<!--<Setter TargetName="RepeatBorder"	Property="Background"		Value="{DynamicResource BorderBackground_ReadOnly}"/>-->
+						</Trigger>
+						
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- Numeric Integer UpDown -->
+	<Style TargetType="{x:Type controls:IntegerUpDown}"
+		   BasedOn="{StaticResource NumericUpDownStyle}" />
+
+	<!-- Numeric Double UpDown -->
+	<Style TargetType="{x:Type controls:DoubleUpDown}"
+		   BasedOn="{StaticResource NumericUpDownStyle}" />
+
+</ResourceDictionary>

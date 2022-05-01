@@ -12,7 +12,7 @@ namespace UserViewer
     public class CreateUserViewModel : ViewModelBase, ICreateUserViewModel
     {
 		[Reactive] public string Name { get; set; }
-        [Reactive] public DateTime DateOfBirth { get; set; }
+        [Reactive] public DateTime DateOfBirth { get; set; } = DateTime.Today;
         [Reactive] public string Profession { get; set; }
 		public Guid Id { get; set; }
 

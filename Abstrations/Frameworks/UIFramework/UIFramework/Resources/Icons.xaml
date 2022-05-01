@@ -21,9 +21,19 @@
 		<Setter Property="Icon" Value=""/>
 	</Style>
 
-    <!-- Delete Icon -->
+    <!-- Chevron Down Icon -->
     <Style x:Key="ChevronDownBoldIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
         <Setter Property="Icon" Value=""/>
+    </Style>
+
+    <!-- Chevron Up Icon -->
+    <Style x:Key="ChevronUpBoldIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+        <Setter Property="Icon" Value=""/>
+    </Style>
+
+    <!-- Chevron Up Icon -->
+    <Style x:Key="CalendarIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+        <Setter Property="Icon" Value=""/>
     </Style>
 
 </ResourceDictionary>

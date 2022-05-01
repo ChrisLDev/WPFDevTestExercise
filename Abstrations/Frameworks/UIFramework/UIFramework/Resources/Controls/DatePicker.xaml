@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="UIFramework.DatePicker"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:local="clr-namespace:UIFramework"
+             x:Name="userControl"
+			 mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="CalendarButtonIcon">
+                <Grid Background="Transparent">
+                    <local:VectorIcon Style="{DynamicResource CalendarIcon}" FontSize="24"/>
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBox>
+                <TextBox.Text>
+                    <Binding Path="DateTime" ElementName="userControl" StringFormat="{}{0:MM/dd/yyyy}">
+                        <Binding.ValidationRules>
+                            <local:DateRangeRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <Button x:Name="CalendarButton"
+					Cursor="Hand" 
+					Template="{StaticResource CalendarButtonIcon}" Margin="0"
+					Click="CalendarButton_Click" 
+					ToolTip="@@Date"/>
+        </StackPanel>
+
+        <Popup x:Name="CalendarPopup" StaysOpen="False" AllowsTransparency="True">
+            <Border BorderBrush="{DynamicResource ElementBorderBrush}" 
+                    Background="{DynamicResource ElementBrush}" 
+					BorderThickness="1" CornerRadius="8">
+                <Calendar x:Name="PopupCalender" Style="{StaticResource CalendarDateStyle}"
+					 DisplayDate="{Binding DateTime, Mode=OneWay, ElementName=userControl}"
+					  SelectedDate="{Binding DateTime, Mode=TwoWay, ElementName=userControl}"
+    DisplayDateEnd="{Binding MaxDateTime, Mode=OneWay, ElementName=userControl}"
+					  DisplayDateStart="{Binding MinDateTime, Mode=OneWay, ElementName=userControl}"
+					  SelectedDatesChanged="Calendar_SelectedDatesChanged" />
+            </Border>
+        </Popup>
+    </Grid>
+
+</UserControl>
