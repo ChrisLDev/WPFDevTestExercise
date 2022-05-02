@@ -13,8 +13,36 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Abstrations\DependencyInjection\DependencyInjection\DependencyInjection.csproj" />
     <ProjectReference Include="..\Abstrations\Frameworks\UIFramework\UIFramework\UIFramework.csproj" />
     <ProjectReference Include="..\Abstrations\Modularization\Modularization\Modularization.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\ChangeLogView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LicensesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AboutView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\ChangeLogView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LicensesView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AboutView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>

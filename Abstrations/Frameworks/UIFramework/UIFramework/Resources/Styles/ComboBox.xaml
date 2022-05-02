@@ -6,8 +6,8 @@
 	<ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
 
 		<Border x:Name="Border"
-				BorderBrush="{DynamicResource ElementBorderBrush}"
-				Background="{DynamicResource ElementBrush}"
+				BorderBrush="{DynamicResource AltElementBorderBrush}"
+				Background="{DynamicResource AltElementBrush}"
 				HorizontalAlignment="Stretch"
 				VerticalAlignment="Stretch"		
 				BorderThickness="1,0,0,0"
@@ -46,7 +46,7 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type TextBox}">
 					<Border x:Name="Border" 
-							Background="{DynamicResource ElementBrush}"
+							Background="{DynamicResource AltElementBrush}"
 							BorderBrush="{x:Null}"
 							CornerRadius="4,0,0,4" 
 							BorderThickness="0"
@@ -114,8 +114,8 @@
 				<ControlTemplate TargetType="{x:Type ComboBox}">
 
 					<Border x:Name="Border" 
-							 Background="{DynamicResource ElementBrush}"
-							 BorderBrush="{DynamicResource ElementBorderBrush}"
+							 Background="{DynamicResource AltElementBrush}"
+							 BorderBrush="{DynamicResource AltElementBorderBrush}"
 							 CornerRadius="4"
 							 BorderThickness="{DynamicResource BorderThickness}" >
 

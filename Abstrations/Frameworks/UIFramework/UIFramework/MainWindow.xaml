@@ -11,8 +11,8 @@
 			 Title="WPF Test"
 			 MinHeight="900" 
 			 Height="900" 
-             MinWidth="1600" 
-			 Width="1600" 
+             MinWidth="600" 
+			 Width="1000" 
 			 Background="{DynamicResource BackgroundPanelBrush}"
 			 WindowStyle="None">
 
@@ -45,10 +45,7 @@
 				FontSize="14"
 				Text="WPF Reactive UI Test Application">
             </TextBlock>
-
-
-
-
+            
             <Button x:Name="Settings" 
                     WindowChrome.IsHitTestVisibleInChrome="True"
                     Grid.Column="2"

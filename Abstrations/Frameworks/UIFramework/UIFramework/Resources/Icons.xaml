@@ -61,4 +61,25 @@
         <Setter Property="Icon" Value=""/>
     </Style>
 
+    <!-- Info Icon -->
+    <Style x:Key="InfoIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+        <Setter Property="Icon" Value=""/>
+    </Style>
+
+    <!-- Theme Icon -->
+    <Style x:Key="ThemeIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+        <Setter Property="Icon" Value=""/>
+    </Style>
+
+    <!-- Licenses Icon -->
+    <Style x:Key="LicensesIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+        <Setter Property="Icon" Value=""/>
+    </Style>
+
+    <!-- ChangelogIcon Icon -->
+    <Style x:Key="ChangelogIcon" TargetType="{x:Type controls:VectorIcon}" BasedOn="{StaticResource {x:Type controls:VectorIcon}}">
+        <Setter Property="Icon" Value=""/>
+    </Style>
+
+
 </ResourceDictionary>

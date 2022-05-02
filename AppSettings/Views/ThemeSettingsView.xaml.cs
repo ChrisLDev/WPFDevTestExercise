@@ -18,27 +18,25 @@ using System.Windows.Shapes;
 namespace AppSettings
 {
     /// <summary>
-    /// Interaction logic for AppSettingsView.xaml
+    /// Interaction logic for ThemeSettingsView.xaml
     /// </summary>
-    public partial class AppSettingsView
+    public partial class ThemeSettingsView
     {
-        public AppSettingsView()
+        public ThemeSettingsView()
         {
             InitializeComponent();
 
             this.WhenActivated(disposables =>
             {
-                this.BindCommand(ViewModel,
-                    vm => vm.CloseSettingsCommand,
-                    v => v.CloseSettings).DisposeWith(disposables);
-
                 this.OneWayBind(ViewModel,
                     vm => vm.AvailableThemes,
-                    v => v.Themes.ItemsSource).DisposeWith(disposables);
+                    v => v.Themes.ItemsSource)
+                .DisposeWith(disposables);
 
                 this.Bind(ViewModel,
                     vm => vm.SelectedTheme,
-                    v => v.Themes.SelectedItem).DisposeWith(disposables);
+                    v => v.Themes.SelectedItem)
+                .DisposeWith(disposables);
             });
         }
     }

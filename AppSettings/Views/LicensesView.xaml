@@ -1,0 +1,47 @@
+﻿<rxui:ReactiveUserControl  x:Class="AppSettings.LicensesView"
+             xmlns:rxui="http://reactiveui.net"
+             x:TypeArguments="local:LicensesViewModel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AppSettings"
+             mc:Ignorable="d" >
+    <StackPanel >
+        <TextBlock Text="Licenses" Style="{StaticResource Subtitle}" FontSize="25"/>
+        <TextBlock Text="This application makes use of the following open source libraries" />
+
+        <Border Background="{StaticResource ElementBrush}" CornerRadius="4" Margin="8" Padding="16">
+            <DockPanel>
+                <TextBlock Text="ReactiveUI"/>
+                <TextBlock HorizontalAlignment="Right">
+                    <Hyperlink NavigateUri="https://github.com/reactiveui/ReactiveUI/blob/main/LICENSE" RequestNavigate="Hyperlink_RequestNavigate">
+                        MIT License
+                    </Hyperlink>
+                </TextBlock>
+            </DockPanel>
+        </Border>
+
+        <Border Background="{StaticResource ElementBrush}" CornerRadius="4" Margin="8" Padding="16">
+            <DockPanel>
+                <TextBlock Text="AutoMapper"/>
+                <TextBlock HorizontalAlignment="Right">
+                    <Hyperlink NavigateUri="https://github.com/AutoMapper/AutoMapper/blob/master/LICENSE.txt" RequestNavigate="Hyperlink_RequestNavigate">
+                        MIT License
+                    </Hyperlink>
+                </TextBlock>
+            </DockPanel>
+        </Border>
+
+        <Border Background="{StaticResource ElementBrush}" CornerRadius="4" Margin="8" Padding="16">
+            <DockPanel>
+                <TextBlock Text="EntityFramework"/>
+                <TextBlock HorizontalAlignment="Right">
+                    <Hyperlink NavigateUri="https://github.com/MicrosoftLearning/EntityFramework/blob/master/LICENSE" RequestNavigate="Hyperlink_RequestNavigate">
+                        MIT License
+                    </Hyperlink>
+                </TextBlock>
+            </DockPanel>
+        </Border>
+    </StackPanel>
+</rxui:ReactiveUserControl>

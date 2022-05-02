@@ -1,9 +1,9 @@
-﻿using ReactiveUI;
+﻿using AppSettings.Interfaces;
+using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reactive;
 using System.Reactive.Disposables;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +13,11 @@ using UIFramework.Abstrations.Theme;
 
 namespace AppSettings
 {
-    public class AppSettingsViewModel : ViewModelBase
+    public class ThemeSettingsViewModel : ViewModelBase, ISettingsItem
     {
-        public readonly IThemesController _themesController;
+        private readonly IThemesController _themesController;
 
-        public AppSettingsViewModel(IThemesController themesController)
+        public ThemeSettingsViewModel(IThemesController themesController)
         {
             _themesController = themesController;
 
@@ -33,12 +33,13 @@ namespace AppSettings
                 .DisposeWith(disposables);
         }
 
-        public MainWindowViewModel MainWindowViewModel { get; set; }
+        public string MenuCategory => "01_Theme";
 
-        public ReactiveCommand<Unit, Unit> CloseSettingsCommand => ReactiveCommand.Create(() =>
-        {
-            MainWindowViewModel.IsSettingsActive = false;
-        });
+        public string IconResource => "ThemeIcon";
+
+        public string MenuItemName => "Theme";
+
+        public Type ContentViewModelType => typeof(ThemeSettingsViewModel);
 
         [Reactive] public List<ThemeResourceDictionary> AvailableThemes { get; set; }
 

@@ -1,0 +1,18 @@
+﻿<rxui:ReactiveUserControl  x:Class="AppSettings.ChangeLogView"
+             xmlns:rxui="http://reactiveui.net"
+             x:TypeArguments="local:ChangeLogViewModel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AppSettings"
+             mc:Ignorable="d" >
+    <StackPanel >
+        <TextBlock Text="ChangeLog" Style="{StaticResource Subtitle}" FontSize="25"/>
+        <TextBlock>
+            <Hyperlink NavigateUri="https://github.com/ChrisLDev/WPFDevTestExercise/commits/master" RequestNavigate="Hyperlink_RequestNavigate">
+                View the latest commmits on Github
+            </Hyperlink>
+        </TextBlock>
+    </StackPanel>
+</rxui:ReactiveUserControl>
